@@ -14,6 +14,8 @@ export interface Users {
     [index: string]: User
 }
 
-export interface IStore {
-    users: Users | null
+export interface Store {
+    users: Users,
+    loggedUser: User | null,
+    loading: boolean,
 }

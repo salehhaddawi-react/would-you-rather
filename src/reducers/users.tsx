@@ -1,7 +1,7 @@
-import {IReceiveUsersAction, RECEIVE_USERS} from "../actions/users";
+import {ReceiveUsersAction, RECEIVE_USERS} from "../actions/users";
 import {Users} from "../interfaces";
 
-export default function users(state: Users = {}, action: IReceiveUsersAction) {
+export default function users(state: Users = {}, action: ReceiveUsersAction) {
     switch (action.type) {
         case RECEIVE_USERS:
             return {

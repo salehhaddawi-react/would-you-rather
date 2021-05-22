@@ -2,7 +2,7 @@ import {Users} from "../interfaces";
 
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
-export interface IReceiveUsersAction {
+export interface ReceiveUsersAction {
     type: string,
     users: Users
 }

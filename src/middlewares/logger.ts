@@ -1,6 +1,6 @@
 import {Middleware, MiddlewareAPI, Dispatch} from "redux";
 
-export const logger: Middleware = ({getState}: MiddlewareAPI) => (next: Dispatch) => action => {
+const logger: Middleware = ({getState}: MiddlewareAPI) => (next: Dispatch) => action => {
     console.group(action.type);
     console.log('the action is:', action);
     const returnVal = next(action);
@@ -8,3 +8,5 @@ export const logger: Middleware = ({getState}: MiddlewareAPI) => (next: Dispatch
     console.groupEnd()
     return returnVal;
 }
+
+export default logger;
