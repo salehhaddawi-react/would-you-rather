@@ -1,4 +1,5 @@
 import {
+    _getQuestions,
     _getUsers,
     _login,
     _logout
@@ -7,8 +8,10 @@ import {
 export function getInitialData () {
     return Promise.all([
         _getUsers(),
-    ]).then(([users]) => ({
+        _getQuestions()
+    ]).then(([users, questions]) => ({
         users,
+        questions
     }))
 }
 

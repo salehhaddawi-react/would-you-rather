@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {Store, User} from "../interfaces";
+import {State, User} from "../interfaces";
 import ItemsSelect, {Item} from "../components/ItemsSelect";
 import {handleLogin} from "../actions/auth";
 import {Redirect} from "react-router-dom";
 
 function Login() {
-    const users = useSelector((state: Store) => state.users);
-    const loggedUser = useSelector((state: Store) => state.auth);
+    const users = useSelector((state: State) => state.users);
+    const loggedUser = useSelector((state: State) => state.auth);
     const [user, setUser] = useState<Item | null>(null);
     const dispatch = useDispatch();
 

@@ -1,11 +1,11 @@
 import React from "react";
 import {NavLink, Redirect} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {Store, User} from "../interfaces";
+import {State, User} from "../interfaces";
 import {handleLogout} from "../actions/auth";
 
 export default function Nav () {
-    const loggedUser = useSelector((state: Store) => state.auth);
+    const loggedUser = useSelector((state: State) => state.auth);
     const [menuOpen, setMenuOpen] = React.useState(false);
     const dispatch = useDispatch();
 
