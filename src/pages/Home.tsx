@@ -29,10 +29,10 @@ function Home() {
             <Tabs tabs={
                 [
                     {title: 'Unanswered Questions', content: unansweredQ.map((qId) => (
-                        <Question question={questions[qId]} key={qId}/>
+                        <Question question={questions[qId]} mode="view" key={qId}/>
                     ))},
                     {title: 'Answered Questions', content: answeredQ.map((qId) => (
-                            <Question question={questions[qId]} key={qId}/>
+                            <Question question={questions[qId]} mode="view" key={qId}/>
                         ))}
                 ]} />
         </div>

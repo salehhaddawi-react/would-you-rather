@@ -1,13 +1,7 @@
 import {FC} from 'react';
 import {Listbox} from '@headlessui/react';
 import {CheckIcon, SelectorIcon} from '@heroicons/react/solid';
-
-export interface Item {
-    name: string;
-    id: string| number;
-    disabled?: boolean;
-    [index: string]: any;
-}
+import {Item} from "../interfaces";
 
 interface ItemsObj {
     [index: string]: Item
@@ -16,9 +10,9 @@ interface ItemsObj {
 interface SelectItemsProps {
     items: ItemsObj;
     selected: Item | null;
-    onChange(value: Item): void;
     className?: string;
     placeholder?: string;
+    onChange(value: Item): void;
 }
 
 const ItemsSelect: FC<SelectItemsProps> = (props) => {
@@ -43,10 +37,11 @@ const ItemsSelect: FC<SelectItemsProps> = (props) => {
                         {Object.keys(items).map((itemKey) => (
                             <Listbox.Option key={items[itemKey].id} value={items[itemKey].id} disabled={items[itemKey].disabled} className={({ active }) =>
                                 `${active ? 'text-gray-900 bg-gray-100' : 'text-gray-900'}
-                                    cursor-default select-none relative py-2 pl-10 pr-4`
+                                    cursor-default select-none relative py-2 pl-10 pr-4 flex items-center`
                                 }>
                                 {({ active, selected }) => (
                                     <>
+                                        {items[itemKey].avatarURL && <img className="w-8 mx-4" src={items[itemKey].avatarURL} alt=""/>}
                                         <span className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}>
                                             {items[itemKey].name}
                                         </span>

@@ -1,13 +1,17 @@
-import {ReceiveQuestionsAction, RECEIVE_QUESTIONS} from "../actions/questions";
+import {ReceiveQuestionsAction, SaveQuestionAnswerAction, RECEIVE_QUESTIONS, SAVE_QUESTION_ANSWER} from "../actions/questions";
 import {Questions} from "../interfaces";
 
-export default function questions(state: Questions = {}, action: ReceiveQuestionsAction) {
+type QuestionActions = ReceiveQuestionsAction | SaveQuestionAnswerAction;
+
+export default function questions(state: Questions = {}, action: QuestionActions) {
     switch (action.type) {
         case RECEIVE_QUESTIONS:
             return {
                 ...state,
-                ...action.questions
+                ...(action as ReceiveQuestionsAction).questions
             }
+        case SAVE_QUESTION_ANSWER:
+            return state;
 
         default:
             return state;

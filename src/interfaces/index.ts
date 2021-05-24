@@ -1,5 +1,20 @@
+export type AnswerValue = 'optionOne' | 'optionTwo';
+
 export interface Answer {
-    [index: string]: string
+    [index: string]: AnswerValue
+}
+
+type SingleAnswer = Answer | string;
+
+export interface Answers {
+    [index: string]: SingleAnswer
+}
+
+export interface Item {
+    name: string;
+    id: string| number;
+    disabled?: boolean;
+    [index: string]: any;
 }
 
 export interface VoteOption {
@@ -24,7 +39,7 @@ export interface User {
     name: string,
     avatarURL: string,
     questions: Array<string>,
-    answers: Answer
+    answers: Answers
 }
 
 export interface Users {
@@ -34,6 +49,6 @@ export interface Users {
 export interface State {
     users: Users,
     questions: Questions,
-    auth: User | null | undefined,
+    auth: User | null,
     loading: boolean,
 }
