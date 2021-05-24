@@ -125,6 +125,18 @@ export function _getUsers () {
     })
 }
 
+export function _login (user) {
+    return new Promise((res, rej) => {
+        setTimeout(() => res(user), 1000)
+    })
+}
+
+export function _logout (user) {
+    return new Promise((res, rej) => {
+        setTimeout(() => res(null), 1000)
+    })
+}
+
 export function _getQuestions () {
     return new Promise((res, rej) => {
         setTimeout(() => res({...questions}), 1000)

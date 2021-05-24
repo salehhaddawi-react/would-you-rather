@@ -16,6 +16,6 @@ export interface Users {
 
 export interface Store {
     users: Users,
-    loggedUser: User | null,
+    auth: User | null | undefined,
     loading: boolean,
 }
