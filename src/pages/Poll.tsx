@@ -4,6 +4,7 @@ import {State} from "../interfaces";
 import {Redirect, RouteComponentProps} from 'react-router-dom';
 import QuestionAnswer from "../components/QuestionAnswer";
 import QuestionResult from "../components/QuestionResult";
+import PageNotFound from "./Errors/PageNotFound";
 
 interface PollProps {
     question_id: string;
@@ -21,6 +22,11 @@ function Poll(props: RouteComponentProps<PollProps>) {
     }
 
     const question_id = props.match.params.question_id;
+
+    // question not found
+    if (!questions[question_id]) {
+        return <PageNotFound />;
+    }
 
     // if user already answered
     if (
