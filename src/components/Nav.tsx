@@ -29,9 +29,9 @@ export default function Nav () {
                                 <button onClick={() => setMenuOpen((state) => !state)}
                                     className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none"
                                     type="button">
-                                    <span className="block relative w-6 h-px rounded-sm bg-white"></span>
-                                    <span className="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
-                                    <span className="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+                                    <span className="block relative w-6 h-px rounded-sm bg-white"/>
+                                    <span className="block relative w-6 h-px rounded-sm bg-white mt-1"/>
+                                    <span className="block relative w-6 h-px rounded-sm bg-white mt-1"/>
                                 </button>
                             </div>
                             <div className={`sm:flex-grow sm:inline-flex items-center ${menuOpen ? 'flex' : 'hidden'}`}>

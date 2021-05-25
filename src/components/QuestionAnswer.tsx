@@ -37,8 +37,7 @@ export default function QuestionAnswer(props: QuestionAnswerProps) {
 
     return (
         <div className="mt-4">
-            <div
-                className="bg-gradient-to-t from-blue-900 via-blue-500 to-blue-400 rounded-3xl shadow-md relative flex flex-col items-center justify-between md:items-start py-5 md:p-5 transition-all duration-150 p-2">
+            <div className="bg-gradient-to-t from-blue-900 via-blue-500 to-blue-400 rounded-3xl shadow-md relative flex flex-col items-center justify-between md:items-start py-5 md:p-5 transition-all duration-150 p-2">
                 <img className="rounded-full w-16 h-16 shadow-sm absolute -top-8 transform md:scale-110 duration-700"
                      src={questionAuthor.avatarURL} alt="profile-pic"/>
 
@@ -49,7 +48,6 @@ export default function QuestionAnswer(props: QuestionAnswerProps) {
                     <br/>
                     <h3 className="font-bold">Would You Rather</h3>
                     <br/>
-                    <span className="text-sm">...{question.optionOne.text}...</span>
                 </div>
 
                 <div className="flex flex-col w-full justify-around">

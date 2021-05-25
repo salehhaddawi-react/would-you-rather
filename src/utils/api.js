@@ -3,6 +3,7 @@ import {
     _getUsers,
     _login,
     _logout,
+    _saveQuestion,
     _saveQuestionAnswer
 } from './_DATA.js'
 
@@ -29,5 +30,13 @@ export function saveQuestionAnswer(user, question, answer) {
         authedUser: user.id,
         qid: question.id,
         answer
+    })
+}
+
+export function saveQuestion(optionOneText, optionTwoText, author) {
+    return _saveQuestion({
+        optionOneText,
+        optionTwoText,
+        author
     })
 }
