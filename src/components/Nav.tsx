@@ -54,7 +54,7 @@ export default function Nav () {
                                 </ul>
                                 <ul className={`list-none ml-auto ${!loggedUser ? 'hidden' : ''}`}>
                                     <li className="nav-item flex align-middle items-center">
-                                        <span className="text-white">{loggedUser?.name}</span>
+                                        <span className="text-white">hello، {loggedUser?.name}</span>
                                         <img src={loggedUser?.avatarURL} alt="profile-pic" className="rounded-full w-8 mx-2"/>
                                         <button onClick={logout} className="text-white">Logout</button>
                                     </li>

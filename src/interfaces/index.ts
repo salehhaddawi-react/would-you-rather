@@ -25,7 +25,7 @@ export interface VoteOption {
 export interface Question {
     id: string,
     author: string;
-    timestamp: string;
+    timestamp: number;
     optionOne: VoteOption;
     optionTwo: VoteOption;
 }

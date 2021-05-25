@@ -17,12 +17,12 @@ function Home() {
     const unansweredQ = Object.keys(questions).filter(qId =>
         !questions[qId].optionOne.votes.includes(loggedUser.id) &&
         !questions[qId].optionTwo.votes.includes(loggedUser.id)
-    );
+    ).sort(((a, b) => questions[b].timestamp - questions[a].timestamp));
 
     const answeredQ = Object.keys(questions).filter(qId =>
         questions[qId].optionOne.votes.includes(loggedUser.id) ||
         questions[qId].optionTwo.votes.includes(loggedUser.id)
-    );
+    ).sort(((a, b) => questions[b].timestamp - questions[a].timestamp));
 
     return (
         <div className="flex w-full justify-center mt-10">
