@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {State} from "../interfaces";
 import {Redirect} from 'react-router-dom';
 import Tabs from "../components/Tabs";
-import Question from "../components/Question";
+import QuestionPreview from "../components/QuestionPreview";
 
 function Home() {
 
@@ -29,11 +29,11 @@ function Home() {
             <Tabs tabs={
                 [
                     {title: 'Unanswered Questions', content: unansweredQ.map((qId) => (
-                        <Question question={questions[qId]} mode="view" key={qId}/>
+                        <QuestionPreview question={questions[qId]} key={qId}/>
                     ))},
                     {title: 'Answered Questions', content: answeredQ.map((qId) => (
-                            <Question question={questions[qId]} mode="view" key={qId}/>
-                        ))}
+                        <QuestionPreview question={questions[qId]} key={qId}/>
+                    ))}
                 ]} />
         </div>
     );
