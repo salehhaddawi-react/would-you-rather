@@ -17,11 +17,14 @@ function Poll(props: RouteComponentProps<PollProps>) {
 
     let questionAnswered = false;
 
-    if (!loggedUser) {
-        return <Redirect to="/login"/>
-    }
-
     const question_id = props.match.params.question_id;
+
+    if (!loggedUser) {
+        return <Redirect to={{
+            pathname: "/login",
+            state: { referrer: '/questions/' + question_id }
+        }}/>
+    }
 
     // question not found
     if (!questions[question_id]) {

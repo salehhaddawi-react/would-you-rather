@@ -24,8 +24,8 @@ function App() {
             <Nav />
 
             <Switch>
-                <Route path="/login" exact component={Login}/>
                 <Route path="/" exact component={Home}/>
+                <Route path="/login" exact component={Login}/>
                 <Route path="/add" exact component={Add}/>
                 <Route path="/leaderboard" exact component={LeaderBoard}/>
                 <Route path="/questions/:question_id" exact component={Poll}/>

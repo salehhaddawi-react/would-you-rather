@@ -13,7 +13,10 @@ function Add() {
     const dispatch = useDispatch();
 
     if (!loggedUser) {
-        return <Redirect to="/login"/>
+        return <Redirect to={{
+            pathname: "/login",
+            state: { referrer: '/add' }
+        }}/>
     }
 
     const checkFilled = () => {

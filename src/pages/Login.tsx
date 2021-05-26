@@ -5,7 +5,8 @@ import ItemsSelect from "../components/ItemsSelect";
 import {handleLogin} from "../actions/auth";
 import {Redirect} from "react-router-dom";
 
-function Login() {
+
+function Login(props: any) {
     const users = useSelector((state: State) => state.users);
     const loggedUser = useSelector((state: State) => state.auth);
     const [user, setUser] = useState<Item | null>(null);
@@ -21,9 +22,15 @@ function Login() {
         }
     }
 
+    // successfully logged in
     if (loggedUser) {
-        // successfully logged in
-        return <Redirect to="/"/>
+        let toPath = '/';
+
+        if (props?.location?.state?.referrer) {
+            toPath = props?.location?.state?.referrer;
+        }
+
+        return <Redirect to={toPath}/>
     }
 
     return (

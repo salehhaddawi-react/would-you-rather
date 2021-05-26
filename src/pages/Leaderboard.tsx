@@ -9,7 +9,10 @@ function LeaderBoard() {
     const users = useSelector((state: State) => state.users);
 
     if (!loggedUser) {
-        return <Redirect to="/login"/>
+        return <Redirect to={{
+            pathname: "/login",
+            state: { referrer: '/leaderboard' }
+        }}/>
     }
 
     const scores = Object.keys(users).map((uId) => ({
