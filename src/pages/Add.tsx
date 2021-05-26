@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {State} from "../interfaces";
 import {Redirect} from 'react-router-dom';
-import {handleSaveQuestion} from "../actions/questions";
+import {handleSaveQuestion} from "../actions/shared";
 
 function Add() {
     const loggedUser = useSelector((state: State) => state.auth);

@@ -1,10 +1,13 @@
 import {
     ReceiveUsersAction,
     RECEIVE_USERS,
-    SAVE_QUESTION_TO_USER,
-    SAVE_QUESTION_ANSWER_TO_USER,
-    SaveQuestionToUserAction, SaveQuestionAnswerToUserAction
 } from "../actions/users";
+import {
+    SAVE_QUESTION,
+    SAVE_QUESTION_ANSWER,
+    SaveQuestionAction,
+    SaveQuestionAnswerAction
+} from "../actions/questions";
 import {Users} from "../interfaces";
 
 export default function users(state: Users = {}, action: any) {
@@ -17,8 +20,8 @@ export default function users(state: Users = {}, action: any) {
                 ...state,
                 ...action.users
             }
-        case SAVE_QUESTION_ANSWER_TO_USER:
-            ac = (action as SaveQuestionAnswerToUserAction);
+        case SAVE_QUESTION_ANSWER:
+            ac = (action as SaveQuestionAnswerAction);
 
             return {
                 ...state,
@@ -30,8 +33,8 @@ export default function users(state: Users = {}, action: any) {
                     }
                 }
             }
-        case SAVE_QUESTION_TO_USER:
-            ac = (action as SaveQuestionToUserAction);
+        case SAVE_QUESTION:
+            ac = (action as SaveQuestionAction);
 
             return {
                 ...state,

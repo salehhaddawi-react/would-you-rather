@@ -28,7 +28,11 @@ function Login(props: any) {
 
         if (props?.location?.state?.referrer) {
             toPath = props?.location?.state?.referrer;
+
+            window.history.replaceState({}, props?.location.key)
         }
+
+        console.log('PATH', {toPath})
 
         return <Redirect to={toPath}/>
     }

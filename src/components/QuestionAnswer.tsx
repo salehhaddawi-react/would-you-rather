@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {AnswerValue, Question, State} from "../interfaces";
 import {useDispatch, useSelector} from "react-redux";
 import RadioGroup from "./RadioGroup";
-import {handleSaveQuestionAnswer} from "../actions/questions";
+import {handleSaveQuestionAnswer} from "../actions/shared";
 
 interface QuestionAnswerProps {
     question: Question

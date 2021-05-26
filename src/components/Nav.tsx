@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {State, User} from "../interfaces";
 import {handleLogout} from "../actions/auth";
@@ -11,8 +11,6 @@ export default function Nav () {
 
     const logout = () => {
         dispatch(handleLogout(loggedUser as User));
-
-        return (<Redirect to="login"/>);
     }
 
     return (
