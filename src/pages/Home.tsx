@@ -7,21 +7,21 @@ import QuestionPreview from "../components/QuestionPreview";
 
 function Home() {
 
-    const loggedUser = useSelector((state: State) => state.auth);
+    const user = useSelector((state: State) => state.auth).user;
     const questions  = useSelector((state: State) => state.questions);
 
-    if (!loggedUser) {
+    if (user === null) {
         return <Redirect to="/login"/>
     }
 
     const unansweredQ = Object.keys(questions).filter(qId =>
-        !questions[qId].optionOne.votes.includes(loggedUser.id) &&
-        !questions[qId].optionTwo.votes.includes(loggedUser.id)
+        !questions[qId].optionOne.votes.includes(user.id) &&
+        !questions[qId].optionTwo.votes.includes(user.id)
     ).sort(((a, b) => questions[b].timestamp - questions[a].timestamp));
 
     const answeredQ = Object.keys(questions).filter(qId =>
-        questions[qId].optionOne.votes.includes(loggedUser.id) ||
-        questions[qId].optionTwo.votes.includes(loggedUser.id)
+        questions[qId].optionOne.votes.includes(user.id) ||
+        questions[qId].optionTwo.votes.includes(user.id)
     ).sort(((a, b) => questions[b].timestamp - questions[a].timestamp));
 
     return (

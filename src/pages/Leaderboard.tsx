@@ -5,10 +5,10 @@ import {Redirect} from 'react-router-dom';
 
 function LeaderBoard() {
 
-    const loggedUser = useSelector((state: State) => state.auth);
+    const auth = useSelector((state: State) => state.auth);
     const users = useSelector((state: State) => state.users);
 
-    if (!loggedUser) {
+    if (!auth.user) {
         return <Redirect to={{
             pathname: "/login",
             state: { referrer: '/leaderboard' }

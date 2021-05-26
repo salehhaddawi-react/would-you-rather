@@ -10,7 +10,7 @@ interface QuestionResultProps {
 export default function QuestionResult(props: QuestionResultProps) {
     const {question} = props;
 
-    const loggedUser = useSelector((state: State) => state.auth);
+    const auth = useSelector((state: State) => state.auth);
     const users = useSelector((state: State) => state.users);
     const questions = useSelector((state: State) => state.questions);
     const isLoading = useSelector((state: State) => state.loading);
@@ -22,12 +22,12 @@ export default function QuestionResult(props: QuestionResultProps) {
         'optionTwo': questions[question.id].optionTwo.votes.length,
     }
 
-    if (!questionAuthor || !loggedUser) {
+    if (!questionAuthor || !auth.user) {
         return <div/>;
     }
 
     // in case if question is answered the result will contains either optionOne or optionTwo
-    let answeredOption = users[loggedUser.id].answers[question.id];
+    let answeredOption = users[auth.user.id].answers[question.id];
 
     return (
         <div className="mt-4">

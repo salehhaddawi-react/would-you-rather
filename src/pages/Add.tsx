@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {State} from "../interfaces";
+import {State, User} from "../interfaces";
 import {Redirect} from 'react-router-dom';
 import {handleSaveQuestion} from "../actions/shared";
 
 function Add() {
-    const loggedUser = useSelector((state: State) => state.auth);
+    const user = useSelector((state: State) => state.auth).user;
     const [optionOne, setOptionOne] = useState('');
     const [optionTwo, setOptionTwo] = useState('');
     const [questionCreated, setQuestionCreated] = useState(false);
 
     const dispatch = useDispatch();
 
-    if (!loggedUser) {
+    if (!user) {
         return <Redirect to={{
             pathname: "/login",
             state: { referrer: '/add' }
@@ -25,7 +25,7 @@ function Add() {
 
     const onClick = () => {
         if (checkFilled()) {
-            dispatch(handleSaveQuestion(optionOne, optionTwo, loggedUser));
+            dispatch(handleSaveQuestion(optionOne, optionTwo, user as User));
         }
 
         setQuestionCreated(true);

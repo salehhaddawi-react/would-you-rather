@@ -13,7 +13,7 @@ export default function QuestionAnswer(props: QuestionAnswerProps) {
 
     const [selectedOption, setSelectedOption] = useState<string>();
 
-    const loggedUser = useSelector((state: State) => state.auth);
+    const user = useSelector((state: State) => state.auth).user;
     const users = useSelector((state: State) => state.users);
     const isLoading = useSelector((state: State) => state.loading);
     const questionAuthor = users[question.author];
@@ -30,8 +30,8 @@ export default function QuestionAnswer(props: QuestionAnswerProps) {
     }
 
     const onClick = () => {
-        if (loggedUser && selectedOption) {
-            dispatch(handleSaveQuestionAnswer(loggedUser, question, selectedOption as AnswerValue));
+        if (user && selectedOption) {
+            dispatch(handleSaveQuestionAnswer(user, question, selectedOption as AnswerValue));
         }
     }
 

@@ -5,12 +5,12 @@ import {State, User} from "../interfaces";
 import {handleLogout} from "../actions/auth";
 
 export default function Nav () {
-    const loggedUser = useSelector((state: State) => state.auth);
+    const user = useSelector((state: State) => state.auth).user;
     const [menuOpen, setMenuOpen] = React.useState(false);
     const dispatch = useDispatch();
 
     const logout = () => {
-        dispatch(handleLogout(loggedUser as User));
+        dispatch(handleLogout(user as User));
     }
 
     return (
@@ -50,10 +50,10 @@ export default function Nav () {
                                         </NavLink>
                                     </li>
                                 </ul>
-                                <ul className={`list-none ml-auto ${!loggedUser ? 'hidden' : ''}`}>
+                                <ul className={`list-none ml-auto ${!user ? 'hidden' : ''}`}>
                                     <li className="nav-item flex align-middle items-center">
-                                        <span className="text-white">hello، {loggedUser?.name}</span>
-                                        <img src={loggedUser?.avatarURL} alt="profile-pic" className="rounded-full w-8 mx-2"/>
+                                        <span className="text-white">hello، {user?.name}</span>
+                                        <img src={user?.avatarURL} alt="profile-pic" className="rounded-full w-8 mx-2"/>
                                         <button onClick={logout} className="text-white">Logout</button>
                                     </li>
                                 </ul>

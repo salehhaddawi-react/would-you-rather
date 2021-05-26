@@ -12,14 +12,14 @@ interface PollProps {
 
 function Poll(props: RouteComponentProps<PollProps>) {
 
-    const loggedUser = useSelector((state: State) => state.auth);
+    const user = useSelector((state: State) => state.auth).user;
     const questions  = useSelector((state: State) => state.questions);
 
     let questionAnswered = false;
 
     const question_id = props.match.params.question_id;
 
-    if (!loggedUser) {
+    if (!user) {
         return <Redirect to={{
             pathname: "/login",
             state: { referrer: '/questions/' + question_id }
@@ -33,8 +33,8 @@ function Poll(props: RouteComponentProps<PollProps>) {
 
     // if user already answered
     if (
-        questions[question_id].optionOne.votes.includes(loggedUser.id) ||
-        questions[question_id].optionTwo.votes.includes(loggedUser.id)
+        questions[question_id].optionOne.votes.includes(user.id) ||
+        questions[question_id].optionTwo.votes.includes(user.id)
     ) {
 
         questionAnswered = true;

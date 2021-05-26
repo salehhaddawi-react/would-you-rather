@@ -46,9 +46,14 @@ export interface Users {
     [index: string]: User
 }
 
+export interface Auth {
+    user: User | null,
+    loggedOut: boolean
+}
+
 export interface State {
     users: Users,
     questions: Questions,
-    auth: User | null,
+    auth: Auth,
     loading: boolean,
 }

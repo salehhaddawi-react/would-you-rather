@@ -8,7 +8,7 @@ import {Redirect} from "react-router-dom";
 
 function Login(props: any) {
     const users = useSelector((state: State) => state.users);
-    const loggedUser = useSelector((state: State) => state.auth);
+    const auth = useSelector((state: State) => state.auth);
     const [user, setUser] = useState<Item | null>(null);
     const dispatch = useDispatch();
 
@@ -23,16 +23,13 @@ function Login(props: any) {
     }
 
     // successfully logged in
-    if (loggedUser) {
+    if (auth.user) {
         let toPath = '/';
 
-        if (props?.location?.state?.referrer) {
+        // if there is a referrer and user not logged out
+        if (props?.location?.state?.referrer && !auth.loggedOut) {
             toPath = props?.location?.state?.referrer;
-
-            window.history.replaceState({}, props?.location.key)
         }
-
-        console.log('PATH', {toPath})
 
         return <Redirect to={toPath}/>
     }
